@@ -1,0 +1,16 @@
+# load-balancer.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: load-balancer
+  labels:
+    app: webapp
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+    nodePort: 31000
+  selector:
+    app: webapp
